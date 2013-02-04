@@ -76,11 +76,3 @@ module Avaluator {
         }
     }
 }
-
-window.onload = () => {
-    console.log("start");
-    var el = document.getElementById('content');
-    var slopeEvaluation = new Avaluator.SlopeEvaluation();
-
-    console.log(slopeEvaluation.evaluate().description);
-};

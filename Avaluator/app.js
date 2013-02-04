@@ -143,10 +143,4 @@ var Avaluator;
     })();
     Avaluator.SlopeEvaluation = SlopeEvaluation;    
 })(Avaluator || (Avaluator = {}));
-window.onload = function () {
-    console.log("start");
-    var el = document.getElementById('content');
-    var slopeEvaluation = new Avaluator.SlopeEvaluation();
-    console.log(slopeEvaluation.evaluate().description);
-};
 //@ sourceMappingURL=app.js.map

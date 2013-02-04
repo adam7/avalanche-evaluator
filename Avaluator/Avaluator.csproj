@@ -26,6 +26,15 @@
     <Content Include="app.js">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
+    <Content Include="Tests\tsUnit.js">
+      <DependentUpon>tsUnit.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="Tests\tsUnit.ts" />
+    <TypeScriptCompile Include="Tests\EvaluationTests.ts" />
+    <Content Include="Tests\EvaluationTests.js">
+      <DependentUpon>EvaluationTests.ts</DependentUpon>
+    </Content>
+    <Content Include="Tests\TestRunner.html" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
