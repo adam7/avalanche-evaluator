@@ -50,7 +50,6 @@ var Avaluator;
         function SlopeEvaluation() {
             this.avalancheConditionsScore = 0;
             this.terrainCharacteristicsScore = 0;
-            console.log("starting constructor");
             this.avalancheConditions = [
                 new Question("Regional Danger Rating", "Is the avalanche danger rating \"Considerable\" or higher?", false), 
                 new Question("Persistent Avalanche Problem", "Is there a persistent or deep persistent slab problem in the snowpack?", false), 
@@ -124,7 +123,6 @@ var Avaluator;
                     new NotRecommended()
                 ]
             ];
-            console.log("finished constructor");
         }
         SlopeEvaluation.prototype.evaluate = function () {
             for(var count = 0; count < this.avalancheConditions.length; count++) {

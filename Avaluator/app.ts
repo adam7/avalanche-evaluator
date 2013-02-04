@@ -29,7 +29,6 @@ module Avaluator {
         public terrainCharacteristics: Avaluator.Question[];
 
         constructor() {
-            console.log("starting constructor");
             this.avalancheConditions = [
                 new Question("Regional Danger Rating", "Is the avalanche danger rating \"Considerable\" or higher?", false),
                 new Question("Persistent Avalanche Problem", "Is there a persistent or deep persistent slab problem in the snowpack?", false),
@@ -56,7 +55,6 @@ module Avaluator {
                 [new ExtraCaution(), new ExtraCaution(), new NotRecommended(), new NotRecommended(), new NotRecommended(), new NotRecommended()],
                 [new NotRecommended(), new NotRecommended(), new NotRecommended(), new NotRecommended(), new NotRecommended(), new NotRecommended()]
             ];
-            console.log("finished constructor");
         }
 
         evaluate() {
