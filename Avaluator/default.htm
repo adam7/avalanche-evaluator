@@ -1,15 +1,60 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
+    <title>Avaluator</title>
     <meta charset="utf-8" />
-    <title>Avaluator App</title>
-    <link rel="stylesheet" href="app.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/modern.css" rel="stylesheet" />
     <script src="app.js"></script>
+    <script src="knockout-2.2.1.js"></script>
 </head>
-<body>
-    <h1>Avaluator App</h1>
-
-    <div id="content"/>
+<body class="bg-color-blue">
+    <div class="page">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>Avalanche evaluation: <span data-bind="text:result().description" /></h1>
+            </div>
+        </div>
+        <div class="page-region" data-bind="css : 'bg-color-' + result().colour">
+            <div class="page-region-content, offset1">
+                <div class="clearfix">
+                    <h2>Avalanche Conditions</h2>
+                    <!-- ko foreach: avalancheConditions -->
+                    <div class="tile double blue bg-color-blueDark">
+                        <div class="tile-content">
+                            <h3 data-bind="text: text" style="margin-bottom: 5px;"></h3>
+                            <p>
+                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'avalancheCondition' + $index() }" />
+                                <label data-bind="text: details, attr: { for: 'avalancheCondition' + $index() }"></label>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <div class="clearfix">
+                    <h2>Terrain Characteristics</h2>
+                    <!-- ko foreach: terrainCharacteristics -->
+                    <div class="tile double blue bg-color-blueDark">
+                        <div class="tile-content">
+                            <h3 data-bind="text: text" style="margin-bottom: 5px;"></h3>
+                            <p>
+                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'terrainCharacteristics' + $index() }" />
+                                <label data-bind="text: details, attr: { for: 'terrainCharacteristics' + $index() }"></label>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+        <!--        <div class="app-bar">
+            <p>Visit <a href="http://www.avalanche.ca">www.avalanche.ca</a> for more information.</p>
+            <p>Anomalies in terrain and avalanche conditions may exist. Users of the AVALUATOR&trade; assume their own risk.</p>
+            <p>&copy; 2010 Canadian Avalanche Centre</p>
+        </div>-->
+    </div>
+    <script>
+        ko.applyBindings(new Avaluator.SlopeEvaluation());
+    </script>
 </body>
 </html>

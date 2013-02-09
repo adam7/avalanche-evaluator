@@ -3,10 +3,10 @@ var EvaluationTests;
     function doEvaluation(conditionCount, terrainCount) {
         var evaluation = new Avaluator.SlopeEvaluation();
         for(var count = 0; count < conditionCount; count++) {
-            evaluation.avalancheConditions[count].checked = true;
+            evaluation.avalancheConditions()[count].checked(true);
         }
         for(var count = 0; count < terrainCount; count++) {
-            evaluation.terrainCharacteristics[count].checked = true;
+            evaluation.terrainCharacteristics()[count].checked(true);
         }
         return evaluation.evaluate();
     }
@@ -70,22 +70,22 @@ var EvaluationTests;
         }
         SimpleEvaluationTests.prototype.defaultShouldEvaluateToCaution = function (c) {
             var evaluation = new Avaluator.SlopeEvaluation();
-            c.areIdentical(evaluation.evaluate().name, new Avaluator.Caution().name);
+            c.areIdentical(evaluation.evaluate().description, new Avaluator.Caution().description);
         };
         SimpleEvaluationTests.prototype.evaluationsShouldMatchExpectations = function (c) {
             this.evaluationExpectations.forEach(function (expectation) {
-                c.areIdentical(doEvaluation(expectation.conditionCount, expectation.terrainCount).name, expectation.evaluation.name);
+                c.areIdentical(doEvaluation(expectation.conditionCount, expectation.terrainCount).description, expectation.evaluation.description);
             });
         };
         SimpleEvaluationTests.prototype.allConditionsAllTerrainShouldEvaluateToNotRecommended = function (c) {
             var evaluation = new Avaluator.SlopeEvaluation();
-            evaluation.avalancheConditions.forEach(function (condition) {
-                condition.checked = true;
+            ko.utils.arrayForEach(evaluation.avalancheConditions(), function (condition) {
+                condition.checked(true);
             });
-            evaluation.terrainCharacteristics.forEach(function (terrain) {
-                terrain.checked = true;
+            ko.utils.arrayForEach(evaluation.terrainCharacteristics(), function (terrain) {
+                terrain.checked(true);
             });
-            c.areIdentical(evaluation.evaluate().name, new Avaluator.NotRecommended().name);
+            c.areIdentical(evaluation.evaluate().description, new Avaluator.NotRecommended().description);
         };
         return SimpleEvaluationTests;
     })();

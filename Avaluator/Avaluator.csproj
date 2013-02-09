@@ -21,11 +21,33 @@
     <UpgradeBackupLocation />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.css" />
+    <Content Include="css\modern-responsive.css" />
+    <Content Include="css\modern.css" />
+    <Content Include="css\theme-dark.css" />
     <Content Include="default.htm" />
     <Content Include="app.js">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
+    <Content Include="fonts\iconFont.svg" />
+    <Content Include="fonts\license.txt" />
+    <Content Include="images\preloader-w8-cycle-black.gif" />
+    <Content Include="images\preloader-w8-cycle-white.gif" />
+    <Content Include="images\preloader-w8-line-black.gif" />
+    <Content Include="images\preloader-w8-line-white.gif" />
+    <Content Include="javascript\accordion.js" />
+    <Content Include="javascript\buttonset.js" />
+    <Content Include="javascript\carousel.js" />
+    <Content Include="javascript\dialog.js" />
+    <Content Include="javascript\dropdown.js" />
+    <Content Include="javascript\input-control.js" />
+    <Content Include="javascript\pagecontrol.js" />
+    <Content Include="javascript\rating.js" />
+    <Content Include="javascript\slider.js" />
+    <Content Include="javascript\start-menu.js" />
+    <Content Include="javascript\tile-drag.js" />
+    <Content Include="javascript\tile-slider.js" />
+    <Content Include="knockout-2.2.1.js" />
+    <TypeScriptCompile Include="knockout.d.ts" />
     <Content Include="Tests\tsUnit.js">
       <DependentUpon>tsUnit.ts</DependentUpon>
     </Content>
@@ -38,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\iconFont.eot" />
+    <Content Include="fonts\iconFont.ttf" />
+    <Content Include="fonts\iconFont.woff" />
+    <Content Include="images\Thumbs.db" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
