@@ -87,6 +87,20 @@ var EvaluationTests;
             });
             c.areIdentical(evaluation.evaluate().description, new Avaluator.NotRecommended().description);
         };
+        SimpleEvaluationTests.prototype.whenSlopeSteepnessOverThirtyFiveDegreesIsTrue_SlopeSteepnessOverThirtyDegreesShouldBeTrue = function (c) {
+            var evaluation = new Avaluator.SlopeEvaluation();
+            evaluation.terrainCharacteristics()[1].checked(true);
+            c.areIdentical(evaluation.terrainCharacteristics()[0].checked(), true);
+            c.areIdentical(evaluation.terrainCharacteristics()[1].checked(), true);
+        };
+        SimpleEvaluationTests.prototype.whenSlopeSteepnessOverThirtyDegreesIsFalse_SlopeSteepnessOverThirtyFiveDegreesShouldBeFalse = function (c) {
+            var evaluation = new Avaluator.SlopeEvaluation();
+            evaluation.terrainCharacteristics()[0].checked(true);
+            evaluation.terrainCharacteristics()[1].checked(true);
+            evaluation.terrainCharacteristics()[0].checked(false);
+            c.areIdentical(evaluation.terrainCharacteristics()[0].checked(), false);
+            c.areIdentical(evaluation.terrainCharacteristics()[1].checked(), false);
+        };
         return SimpleEvaluationTests;
     })();
     EvaluationTests.SimpleEvaluationTests = SimpleEvaluationTests;    

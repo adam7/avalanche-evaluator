@@ -131,8 +131,12 @@ var Avaluator;
             });
             ko.utils.arrayForEach(this.terrainCharacteristics(), function (condition) {
                 condition.checked.subscribe(function (checked) {
-                    if(condition.text === self.terrainCharacteristics()[1].text && !self.terrainCharacteristics()[0].checked()) {
+                    if(condition.checked() && condition.details === self.terrainCharacteristics()[1].details && !self.terrainCharacteristics()[0].checked()) {
                         self.terrainCharacteristics()[0].checked(true);
+                    }
+                    ; ;
+                    if(!condition.checked() && condition.details === self.terrainCharacteristics()[0].details && self.terrainCharacteristics()[1].checked()) {
+                        self.terrainCharacteristics()[1].checked(false);
                     }
                     ; ;
                 }, this);

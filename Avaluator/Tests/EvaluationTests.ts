@@ -99,6 +99,27 @@ module EvaluationTests {
 
             c.areIdentical(evaluation.evaluate().description, new Avaluator.NotRecommended().description);
         }
+
+        whenSlopeSteepnessOverThirtyFiveDegreesIsTrue_SlopeSteepnessOverThirtyDegreesShouldBeTrue(c: tsUnit.TestContext) {
+            var evaluation = new Avaluator.SlopeEvaluation();
+
+            evaluation.terrainCharacteristics()[1].checked(true);
+
+            c.areIdentical(evaluation.terrainCharacteristics()[0].checked(), true);
+            c.areIdentical(evaluation.terrainCharacteristics()[1].checked(), true);
+        }
+
+        whenSlopeSteepnessOverThirtyDegreesIsFalse_SlopeSteepnessOverThirtyFiveDegreesShouldBeFalse(c: tsUnit.TestContext) {
+            var evaluation = new Avaluator.SlopeEvaluation();
+
+            evaluation.terrainCharacteristics()[0].checked(true);
+            evaluation.terrainCharacteristics()[1].checked(true);
+
+            evaluation.terrainCharacteristics()[0].checked(false);
+
+            c.areIdentical(evaluation.terrainCharacteristics()[0].checked(), false);
+            c.areIdentical(evaluation.terrainCharacteristics()[1].checked(), false);        
+        }
     }
 }
 

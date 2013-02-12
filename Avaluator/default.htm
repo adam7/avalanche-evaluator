@@ -5,20 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/modern.css" rel="stylesheet" />
+    <link href="css/modern-responsive.css" rel="stylesheet" />
     <script src="app.js"></script>
     <script src="knockout-2.2.1.js"></script>
 </head>
-<body class="bg-color-blue">
+<body class="bg-color-blueDark">
     <div class="page">
         <div class="page-header">
             <div class="page-header-content">
-                <h1>Avalanche evaluation: <span data-bind="text:result().description" /></h1>
+                <h1 class="fg-color-white">Avalanche Evaluation: <span data-bind="text:result().description" /></h1>
             </div>
         </div>
         <div class="page-region" data-bind="css : 'bg-color-' + result().colour">
             <div class="page-region-content, offset1">
                 <div class="clearfix">
-                    <h2>Avalanche Conditions</h2>
+                    <h2 class="fg-color-white">Avalanche Conditions</h2>
                     <!-- ko foreach: avalancheConditions -->
                     <div class="tile double blue bg-color-blueDark">
                         <div class="tile-content">
@@ -32,7 +33,7 @@
                     <!-- /ko -->
                 </div>
                 <div class="clearfix">
-                    <h2>Terrain Characteristics</h2>
+                    <h2 class="fg-color-white">Terrain Characteristics</h2>
                     <!-- ko foreach: terrainCharacteristics -->
                     <div class="tile double blue bg-color-blueDark">
                         <div class="tile-content">

@@ -73,9 +73,13 @@ module Avaluator {
             ko.utils.arrayForEach(this.terrainCharacteristics(), function (condition : Question) {
                 condition.checked.subscribe(function (checked) 
                 {
-                    // TODO: Make sure that if "Is the slope steeper than 35 degrees?" is true then "Is the slope steeper than 30 degrees?" is also true                    
-                    if (condition.text === self.terrainCharacteristics()[1].text && !self.terrainCharacteristics()[0].checked()) {
+                    // Make sure that if "Is the slope steeper than 35 degrees?" is true then "Is the slope steeper than 30 degrees?" is also true                    
+                    if (condition.checked() && condition.details === self.terrainCharacteristics()[1].details && !self.terrainCharacteristics()[0].checked()) {
                         self.terrainCharacteristics()[0].checked(true);
+                    };
+                    // Make sure that if "Is the slope steeper than 30 degrees?" is false then "Is the slope steeper than 35 degrees?" is also false                    
+                    if (!condition.checked() && condition.details === self.terrainCharacteristics()[0].details && self.terrainCharacteristics()[1].checked()) {
+                        self.terrainCharacteristics()[1].checked(false);
                     };
                 }, this);
             });
