@@ -8,54 +8,72 @@
     <link href="css/modern-responsive.css" rel="stylesheet" />
     <script src="app.js"></script>
     <script src="knockout-2.2.1.js"></script>
+    <script src="javascript/dialog.js"></script>
 </head>
-<body class="bg-color-blueDark">
+<body class="bg-color-darken">
+
     <div class="page">
-        <div class="page-header">
-            <div class="page-header-content">
-                <h1 class="fg-color-white">Avalanche Evaluation: <span data-bind="text:result().description" /></h1>
+        <!--<div class="nav-bar, bg-color-darken">
+            <div class="nav-bar-inner, fg-color-white">
+                <span class="element">Avalanche Evaluator</span>
+                <span class="divider"></span>
+                <ul class="menu">
+                    <li>Help</li>
+                </ul>
             </div>
-        </div>
-        <div class="page-region" data-bind="css : 'bg-color-' + result().colour">
+        </div>-->
+        <div class="page-region" style="margin-bottom: 100px">
+            <div class="nav-bar bg-color-darken">
+                <div class="nav-bar-inner">
+                    <a href="#"><span class="element brand">Avalanche Evaluator</span></a>
+                    <span class="divider"></span>
+                    <ul class="menu">
+                        <li class="icon-help" style="color: white" id="staticDialog"><a href="#">Help</a></li>
+                        <li class="icon-bookmark" style="color: white"><a href="http://www.avalanche.ca">avalanche.ca</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="page-region-content, offset1">
+
                 <div class="clearfix">
                     <h2 class="fg-color-white">Avalanche Conditions</h2>
                     <!-- ko foreach: avalancheConditions -->
-                    <div class="tile double blue bg-color-blueDark">
-                        <div class="tile-content">
-                            <h3 data-bind="text: text" style="margin-bottom: 5px;"></h3>
-                            <p>
-                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'avalancheCondition' + $index() }" />
-                                <label data-bind="text: details, attr: { for: 'avalancheCondition' + $index() }"></label>
-                            </p>
+                    <label data-bind="attr: { for: 'avalancheCondition' + $index() }">
+                        <div class="tile double blue bg-color-blueDark" data-bind="css: { selected: checked }">
+                            <div class="tile-content">
+                                <h3 data-bind="text: text" style="margin-bottom: 5px"></h3>
+                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'avalancheCondition' + $index() }" style="display: none" />
+                                <p data-bind="text: details" />
+                            </div>
                         </div>
-                    </div>
+                    </label>
                     <!-- /ko -->
                 </div>
                 <div class="clearfix">
                     <h2 class="fg-color-white">Terrain Characteristics</h2>
                     <!-- ko foreach: terrainCharacteristics -->
-                    <div class="tile double blue bg-color-blueDark">
-                        <div class="tile-content">
-                            <h3 data-bind="text: text" style="margin-bottom: 5px;"></h3>
-                            <p>
-                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'terrainCharacteristics' + $index() }" />
-                                <label data-bind="text: details, attr: { for: 'terrainCharacteristics' + $index() }"></label>
-                            </p>
+                    <label data-bind="attr: { for: 'terrainCharacteristics' + $index() }">
+                        <div class="tile double blue bg-color-blueDark" data-bind="css: { selected: checked }">
+                            <div class="tile-content">
+                                <h3 data-bind="text: text" style="margin-bottom: 5px"></h3>
+                                <input type="checkbox" data-bind="checked: checked, attr: { id: 'terrainCharacteristics' + $index() }" style="display: none" />
+                                <p data-bind="text: details" />
+                            </div>
                         </div>
-                    </div>
+                    </label>
                     <!-- /ko -->
                 </div>
             </div>
         </div>
-        <!--        <div class="app-bar">
-            <p>Visit <a href="http://www.avalanche.ca">www.avalanche.ca</a> for more information.</p>
+        <div class="app-bar">
+            <!-- <p>Visit <a href="http://www.avalanche.ca">www.avalanche.ca</a> for more information.</p>
             <p>Anomalies in terrain and avalanche conditions may exist. Users of the AVALUATOR&trade; assume their own risk.</p>
-            <p>&copy; 2010 Canadian Avalanche Centre</p>
-        </div>-->
+            <p>&copy; 2010 Canadian Avalanche Centre</p>-->
+            <h2 data-bind="text: result().description, style: { color : result().colour }" class="icon-warning" style="font-size: 70px; padding: 20px;"></h2>
+        </div>
     </div>
     <script>
-        ko.applyBindings(new Avaluator.SlopeEvaluation());
+        ko.applyBindings(new Avaluator.SlopeEvaluation());       
     </script>
 </body>
 </html>
