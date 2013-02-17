@@ -9,6 +9,7 @@
     <script src="app.js"></script>
     <script src="knockout-2.2.1.js"></script>
     <script src="javascript/dialog.js"></script>
+    <script src="javascript/dropdown.js"></script>
 </head>
 <body class="bg-color-darken">
 
@@ -22,19 +23,15 @@
                 </ul>
             </div>
         </div>-->
-        <div class="page-region" style="margin-bottom: 100px">
-            <div class="nav-bar bg-color-darken">
-                <div class="nav-bar-inner">
-                    <a href="#"><span class="element brand">Avalanche Evaluator</span></a>
-                    <span class="divider"></span>
-                    <ul class="menu">
-                        <li class="icon-help" style="color: white" id="staticDialog"><a href="#">Help</a></li>
-                        <li class="icon-bookmark" style="color: white"><a href="http://www.avalanche.ca">avalanche.ca</a></li>
-                    </ul>
-                </div>
+        <div class="nav-bar bg-color-darken">
+            <div class="nav-bar-inner">
+                <a href="#"><span class="element brand">Avalanche Evaluator</span></a>
+                <a href="#"><span class="element icon-help">Help</span class="element"></a>
+                <a href="http://www.avalanche.ca"><span class="element icon-bookmark">Avalanche.ca</span class="element"></a>
             </div>
+        </div>
+        <div class="page-region" style="margin-bottom: 100px">
             <div class="page-region-content, offset1">
-
                 <div class="clearfix">
                     <h2 class="fg-color-white">Avalanche Conditions</h2>
                     <!-- ko foreach: avalancheConditions -->
@@ -69,11 +66,11 @@
             <!-- <p>Visit <a href="http://www.avalanche.ca">www.avalanche.ca</a> for more information.</p>
             <p>Anomalies in terrain and avalanche conditions may exist. Users of the AVALUATOR&trade; assume their own risk.</p>
             <p>&copy; 2010 Canadian Avalanche Centre</p>-->
-            <h2 data-bind="text: result().description, style: { color : result().colour }" class="icon-warning" style="font-size: 70px; padding: 20px;"></h2>
+            <h2 data-bind="text: result().description, style: { color : result().colour }" class="icon-warning" style="font-size: 50px; padding-top: 20px; padding-left:10px"></h2>
         </div>
     </div>
     <script>
-        ko.applyBindings(new Avaluator.SlopeEvaluation());       
+        ko.applyBindings(new Avaluator.SlopeEvaluation());
     </script>
 </body>
 </html>
