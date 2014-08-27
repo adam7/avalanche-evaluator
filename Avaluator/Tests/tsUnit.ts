@@ -97,14 +97,14 @@ module tsUnit {
             }
         }
 
-        isTrue(a: bool) {
+        isTrue(a: boolean) {
             if (!a) {
                 throw 'isTrue failed when passed ' +
                     '{' + (typeof a) + '} "' + a + '"';
             }
         }
 
-        isFalse(a: bool) {
+        isFalse(a: boolean) {
             if (a) {
                 throw 'isFalse failed when passed ' +
                     '{' + (typeof a) + '} "' + a + '"';
@@ -112,7 +112,7 @@ module tsUnit {
         }
 
         isTruthy(a: any) {
-            if (!a) {
+            if (!a) {   
                 throw 'isTrue failed when passed ' +
                     '{' + (typeof a) + '} "' + a + '"';
             }

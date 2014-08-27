@@ -1,8 +1,8 @@
-/// <reference path="knockout.d.ts" />
+/// <reference path="scripts/typings/knockout/knockout.d.ts" />
 
 module Avaluator {
     export class Question {
-        constructor(public text: string, public details: string, public checked: KnockoutObservableBool) {
+        constructor(public text: string, public details: string, public checked: KnockoutObservable<boolean>) {
         }
     }
 
@@ -25,10 +25,10 @@ module Avaluator {
     export class SlopeEvaluation {
         private slopeEvaluation: Avaluator.Evaluation[][];
 
-        public avalancheConditions: KnockoutObservableArray;
-        public terrainCharacteristics: KnockoutObservableArray;
+        public avalancheConditions: KnockoutObservableArray<Question>;
+        public terrainCharacteristics: KnockoutObservableArray<Question>;
 
-        public result: KnockoutComputed;
+        public result: KnockoutComputed<Evaluation>;
 
         constructor() {
             var self = this;
@@ -83,9 +83,6 @@ module Avaluator {
                     };
                 }, this);
             });
-        }
-
-        thing() {
         }
 
         evaluate() {
